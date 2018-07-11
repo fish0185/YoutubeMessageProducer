@@ -1,0 +1,16 @@
+{
+    "name": "Extensions for publish sns message with aws js skd",
+    "description" : "Base Level Extension",
+    "version": "1.0",
+    "manifest_version": 2,
+    "content_scripts":[
+      {
+        "matches":["*://www.youtube.com/*"],
+        "js": ["./node_modules/moment/min/moment.min.js", "./node_modules/amazon-cognito-identity-js/dist/amazon-cognito-identity.min.js", "./node_modules/aws-sdk/dist/aws-sdk.min.js", "./contentScript.js"]
+      }
+    ],
+    "permissions": ["activeTab", "storage"],
+    "browser_action": {
+      "default_popup": "./popout/popout.html"
+    }
+  }
