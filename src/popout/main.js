@@ -13,8 +13,8 @@ chrome.storage.sync.get(['token'], function(result) {
 
 btn.onclick = function(){
     var poolData = {
-        UserPoolId : 'ap-southeast-2_xxxxxxx', // your user pool id here
-        ClientId : 'xxxxxxxxxxxxxxx' // your app client id here
+        UserPoolId : 'ap-southeast-2_xxxxx', // your user pool id here
+        ClientId : 'xxxxxxxxxxxxx' // your app client id here
     };
     var userPool = 
     new AmazonCognitoIdentity.CognitoUserPool(poolData);
@@ -37,10 +37,11 @@ btn.onclick = function(){
             });
             show(logout);
             hide(btn);
+            document.getElementById('error').innerText = '';
         },
 
         onFailure: function(err) {
-            alert(JSON.stringify(err));
+            document.getElementById('error').innerText = JSON.stringify(err);
         },
         mfaRequired: function(codeDeliveryDetails) {
             var verificationCode = prompt('Please input verification code' ,'');
